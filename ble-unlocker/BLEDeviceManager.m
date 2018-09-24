@@ -8,6 +8,7 @@
 
 #import "BLEDeviceManager.h"
 #import "Device.h"
+#import "const_config.h"
 @interface BLEDeviceManager()<CBCentralManagerDelegate>
 @property (strong,nonatomic) CBCentralManager* central;
 @end
@@ -43,7 +44,7 @@ BLEDeviceManager* instance;
     self.central = central;
     self.central.delegate = self;
     NSLog(@"centralManagerDidUpdateState:%ld",central.state);
-    if (central.state == CBCentralManagerStatePoweredOn) {
+    if (central.state == CBManagerStatePoweredOn) {
         NSLog(@"scanForPeripheralsWithServices");
         [central scanForPeripheralsWithServices:nil
                                         options:nil];
@@ -67,6 +68,7 @@ BLEDeviceManager* instance;
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
     NSLog(@"Peripheral connected: %@",peripheral.name);
     
+    
     Device* device = [self.devices valueForKey:peripheral.identifier.UUIDString];
     if(device == NULL)
     {
@@ -76,6 +78,7 @@ BLEDeviceManager* instance;
     [device autoRefreshRssi];
     
     [peripheral discoverServices:nil];
+    
     
 }
 
@@ -116,22 +119,29 @@ didFailToConnectPeripheral:(CBPeripheral *)peripheral
     }
 }
 
+
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *) advertisementData
                   RSSI:(NSNumber *)RSSI {
     
-    NSLog(@"Discovered %@,%@", peripheral.name, peripheral.identifier.UUIDString);
-//    [central stopScan];
-    
-    Device* device = [self.devices valueForKey:peripheral.identifier.UUIDString];
-    if(device == NULL)
-    {
-        device = [[Device alloc] init:peripheral];
-        [self.devices setValue:device forKey: peripheral.identifier.UUIDString];
-    }
-    
-    if(peripheral.state == CBPeripheralStateDisconnected)
-    {
-        [central connectPeripheral:peripheral options:nil];
+    //    [central stopScan];
+    if([peripheral.identifier.UUIDString isEqualToString:KnownDevice]){
+        NSLog(@"Discovered %@,%@,%ld,%@", peripheral.name, peripheral.identifier.UUIDString,(long)peripheral.state,RSSI);
+        NSLog(@"hello mi band!");
+        Device* device = [self.devices valueForKey:peripheral.identifier.UUIDString];
+        if(device == NULL)
+        {
+            device = [[Device alloc] init:peripheral];
+            [self.devices setValue:device forKey: peripheral.identifier.UUIDString];
+        }
+        
+        if(peripheral.state == CBPeripheralStateDisconnected)
+        {
+            [central connectPeripheral:peripheral options:nil];
+        }else if (peripheral.state != CBPeripheralStateConnected){
+            [device updateRSSI:RSSI];
+        }
+    }else{
+        NSLog(@"Discovered %@,%@,%ld,%@,but only mi band can connect", peripheral.name, peripheral.identifier.UUIDString,(long)peripheral.state,RSSI);
     }
 }
 

@@ -28,18 +28,21 @@ int MaxRssiInStore = 10;
     return self;
 }
 
-- (void)peripheralDidUpdateRSSI:(CBPeripheral *)peripheral error:(NSError *)error{
-    NSLog(@"UpdateRSSI %@,%d,%d,%@",peripheral.name, self.refreshRssiTimes,(self.refreshRssiTimes % MaxRssiInStore), peripheral.RSSI);
+- (void)peripheral:(CBPeripheral *)peripheral didReadRSSI:(NSNumber *)RSSI error:(NSError *)error{
+    [self updateRSSI:RSSI];
+}
+
+- (void)updateRSSI:(NSNumber *)RSSI{
+    NSLog(@"UpdateRSSI %@,%d,%d,%@",self.peripheral.name, self.refreshRssiTimes,(self.refreshRssiTimes % MaxRssiInStore), RSSI);
     
-    [self.rssiList setObject:peripheral.RSSI atIndexedSubscript:(self.refreshRssiTimes % MaxRssiInStore) ];
+    [self.rssiList setObject:RSSI atIndexedSubscript:(self.refreshRssiTimes % MaxRssiInStore) ];
     self.refreshRssiTimes++;
     
     if(self.isAutoRefreshRssi && self.peripheral.state == CBPeripheralStateConnected){
         [self.peripheral readRSSI];
     }
-    
-//    NSLog(@"%@",self.rssiList);
 }
+
 
 - (float) getLastRssi{
     return [[self.rssiList objectAtIndex:(self.refreshRssiTimes % MaxRssiInStore)] floatValue];

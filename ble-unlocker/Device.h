@@ -14,6 +14,7 @@
 - (float) getLastRssi;
 - (float) getAvgRssi:(int) avgTimes;
 - (void) autoRefreshRssi;
+- (void) updateRSSI:(NSNumber *)RSSI;
 @property int refreshRssiTimes;
 @property(nonatomic) CBPeripheral *peripheral;
 @end

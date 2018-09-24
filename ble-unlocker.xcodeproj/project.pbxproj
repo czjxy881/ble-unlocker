@@ -17,11 +17,11 @@
 		81C42E891CBE445200932E3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81C42E7B1CBE445200932E3C /* Main.storyboard */; };
 		81C42E8A1CBE445200932E3C /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C42E7E1CBE445200932E3C /* Device.m */; };
 		81C42E8B1CBE445200932E3C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81C42E7F1CBE445200932E3C /* Images.xcassets */; };
-		81C42E8C1CBE445200932E3C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81C42E801CBE445200932E3C /* Info.plist */; };
 		81C42E8D1CBE445200932E3C /* MacLocker.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C42E821CBE445200932E3C /* MacLocker.m */; };
 		81C42E8E1CBE445200932E3C /* MainPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C42E841CBE445200932E3C /* MainPopoverViewController.m */; };
 		81C42E8F1CBE445200932E3C /* MainPopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81C42E851CBE445200932E3C /* MainPopoverViewController.xib */; };
 		81C42E901CBE445200932E3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C42E861CBE445200932E3C /* main.m */; };
+		8B21FC852158C26E00D0D219 /* const_config.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B21FC842158C26E00D0D219 /* const_config.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +57,8 @@
 		81C42E841CBE445200932E3C /* MainPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPopoverViewController.m; sourceTree = "<group>"; };
 		81C42E851CBE445200932E3C /* MainPopoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainPopoverViewController.xib; sourceTree = "<group>"; };
 		81C42E861CBE445200932E3C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8B21FC812158BC7600D0D219 /* const_config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = const_config.h; sourceTree = "<group>"; };
+		8B21FC842158C26E00D0D219 /* const_config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = const_config.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,8 @@
 				81C42E841CBE445200932E3C /* MainPopoverViewController.m */,
 				81C42E851CBE445200932E3C /* MainPopoverViewController.xib */,
 				81C42E861CBE445200932E3C /* main.m */,
+				8B21FC812158BC7600D0D219 /* const_config.h */,
+				8B21FC842158C26E00D0D219 /* const_config.m */,
 			);
 			path = "ble-unlocker";
 			sourceTree = "<group>";
@@ -168,11 +172,12 @@
 		8156064C1B185A95005D160A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = pangliang;
 				TargetAttributes = {
 					815606531B185A95005D160A = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 3UBZ9FK3UG;
 					};
 					815606691B185A95005D160A = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -208,7 +213,6 @@
 				81C42E8F1CBE445200932E3C /* MainPopoverViewController.xib in Resources */,
 				81C42E8B1CBE445200932E3C /* Images.xcassets in Resources */,
 				814AF7161B21C7F200367862 /* icon-64.png in Resources */,
-				81C42E8C1CBE445200932E3C /* Info.plist in Resources */,
 				8190156B1B1EF50900FC2350 /* Chain_links_24.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +235,7 @@
 				81C42E871CBE445200932E3C /* AppDelegate.m in Sources */,
 				81C42E881CBE445200932E3C /* BLEDeviceManager.m in Sources */,
 				81C42E8D1CBE445200932E3C /* MacLocker.m in Sources */,
+				8B21FC852158C26E00D0D219 /* const_config.m in Sources */,
 				81C42E901CBE445200932E3C /* main.m in Sources */,
 				81C42E8E1CBE445200932E3C /* MainPopoverViewController.m in Sources */,
 			);
@@ -273,19 +278,30 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -316,13 +332,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -348,15 +374,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3UBZ9FK3UG;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ble-unlocker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zhaoxiaodan.ble-unlocker";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lambda.ble-unlocker";
 				PRODUCT_NAME = "ble-unlocker";
 			};
 			name = Debug;
@@ -365,15 +393,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3UBZ9FK3UG;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/ble-unlocker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zhaoxiaodan.ble-unlocker";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lambda.ble-unlocker";
 				PRODUCT_NAME = "ble-unlocker";
 			};
 			name = Release;
